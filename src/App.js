@@ -1,39 +1,25 @@
-import products from "./data/products";
+import "./App.css";
+import product from "./data/product";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 
 function App() {
   return (
-    <Container className="mt-5">
-      <Row>
-        <h2 className="text-secondary text-center fw-bold text-uppercase mb-4">
-          Products Store
-        </h2>
-      </Row>
-      <Row className="g-4">
-        {products.map((product) => {
-          return (
-            <Col key={product.id} md={6} lg={4}>
-              <Card className="shadow">
-                {/* Card Image */}
-                <Card.Img
-                  variant="center"
-                  src={product.image}
-                  alt="Product"
-                  className="img-fluid"
-                  style={{ height: "200px", objectFit: "cover" }}
-                />
+    <Container className="text-center mt-5">
+      <Row className="justify-content-center">
+        <Col md={6} lg={4}>
+          <Card className="shadow rounded-2">
+            {/* Card Image */}
+            <Card.Img variant="top" src={product.image} className="rounded-top-3" alt="Product" />
 
-                {/* Card Body */}
-                <Card.Body>
-                  <Card.Title>{product.name}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
-                  <Card.Text className="fw-bold">{product.price}</Card.Text>
-                  <Button variant="warning" className="w-100">Buy Now</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          );
-        })}
+            {/* Card Body */}
+            <Card.Body>
+              <Card.Title className="fw-bold">{product.name}</Card.Title>
+              <Card.Text>{product.description}</Card.Text>
+              <Card.Text className="fw-semibold fs-5">{product.price}</Card.Text>
+              <Button variant="warning" className="w-100 fw-semibold">Buy Now</Button>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
